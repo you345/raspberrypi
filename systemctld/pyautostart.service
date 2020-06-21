@@ -1,0 +1,10 @@
+[Unit]
+Description = Pythonscript autostart
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/LCD-1602-I2C/sample.py 
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
