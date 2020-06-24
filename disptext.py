@@ -68,6 +68,8 @@ while True:
     MemUsage = subprocess.check_output(cmd, shell = True )
     cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell = True )
+    cmd = "date '+%Y/%m/%d %H:%M:%S'"
+    TIME = subprocess.check_output(cmd, shell = True )
  
     # Write two lines of text.
  
@@ -75,8 +77,9 @@ while True:
     draw.text((x, top+8),     str(CPU), font=font, fill=255)
     draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
     draw.text((x, top+25),    str(Disk),  font=font, fill=255)
+    draw.text((x, top+33),    str(TIME),  font=font, fill=255)
  
     # Display image.
     disp.image(image)
     disp.display()
-    time.sleep(.1)
+    time.sleep(.05)
